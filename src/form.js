@@ -91,7 +91,7 @@ function bodyMassRatio(){
 
 function checkType(name , age, weight){
     
-    if ((name=="undefined") || (age=="undefined"||isNaN(age)) || (weight=="undefined" || isNaN(weight)))
+    if ((name=="") || (age=="undefined"||isNaN(age)) || (weight=="undefined" || isNaN(weight)))
     return false;
     return true;
 }
