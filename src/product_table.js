@@ -9,11 +9,16 @@ function addProduct(){
 
     if(checkDataType(p_id,p_name,p_price))
     {
-        insertData(p_id,p_name,p_price);
-       document.getElementById('result').innerHTML="valid";
-        
-        display();
-       
+        if(duplicateId(p_id))
+        {
+            insertData(p_id,p_name,p_price);
+            document.getElementById('result').innerHTML="valid";
+         
+            display();
+        }
+        else{
+            alert("Duplicate ID");
+        }
     }
     else
     {
@@ -29,6 +34,18 @@ function checkDataType(p_id,p_name,p_price)
     return false;
     return true;
 }
+
+
+function duplicateId(p_id)
+{
+    for(let i=0;i<list.length;i++)
+    {
+        if(p_id==list[i].id)
+        return false;
+    }
+    return true;
+}
+
 
 function insertData(p_id,p_name,p_price)
 {
